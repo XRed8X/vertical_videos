@@ -12,7 +12,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => DiscoverProvider())
+        ChangeNotifierProvider(
+          lazy: false,
+          create: (context) => DiscoverProvider()..loadNextPage()
+        )
       ],
       child: MaterialApp(
         title: 'Vertical Videos',
